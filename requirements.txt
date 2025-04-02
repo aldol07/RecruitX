@@ -1,0 +1,9 @@
+streamlit  
+python-dotenv  
+langchain  
+mistralai  
+pypdf2  
+nltk  
+spacy  
+docx
+pdfplumber

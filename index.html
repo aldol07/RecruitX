@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecruitX - AI Hiring Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>RecruitX - AI Hiring Assistant</h1>
+        <p class="subtitle">Fill in your details to begin the interview</p>
+        
+        <form id="userForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+            
+            <label for="experience">Years of Experience:</label>
+            <input type="number" id="experience" name="experience" min="0" required>
+            
+            <label for="position">Desired Position(s):</label>
+            <input type="text" id="position" name="position" required>
+            
+            <label for="location">Current Location:</label>
+            <input type="text" id="location" name="location" required>
+            
+            <label for="tech_stack">Enter your tech stack (comma separated):</label>
+            <textarea id="tech_stack" name="tech_stack" required></textarea>
+            
+            <label for="resume">Upload Resume (Optional):</label>
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+            
+            <button type="submit" class="start-btn">Start Interview</button>
+        </form>
+        
+        <div class="theme-switcher">
+            <label>Dark Mode:</label>
+            <input type="checkbox" id="darkModeToggle">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('darkModeToggle').addEventListener('change', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            localStorage.setItem('userData', JSON.stringify(Object.fromEntries(formData)));
+            window.location.href = 'chatbot.html';
+        });
+    </script>
+</body>
+</html>

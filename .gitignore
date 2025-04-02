@@ -1,0 +1,9 @@
+__pycache__/
+recruitx_env/
+.env
+*.pyc
+*.pyo
+*.log
+.DS_Store
+interactions.json
+candidate_details.json
