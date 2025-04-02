@@ -7,3 +7,5 @@ nltk
 spacy  
 docx
 pdfplumber
+ollama
+
