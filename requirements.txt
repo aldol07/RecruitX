@@ -8,4 +8,6 @@ spacy
 docx
 pdfplumber
 ollama
+python-docx
+textblob
 
