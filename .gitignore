@@ -4,6 +4,7 @@ recruitx_env/
 *.pyc
 *.pyo
 *.log
+recruitx.log
 .DS_Store
 interactions.json
 candidate_details.json

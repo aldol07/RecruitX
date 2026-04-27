@@ -1,4 +1,3 @@
-import ollama
 from utils import save_interaction, analyze_response, generate_technical_questions
 from prompts import get_greeting_prompt, get_info_prompt, get_tech_stack_prompt, get_closing_prompt
 
@@ -16,15 +15,21 @@ def chat_with_candidate():
     print(get_tech_stack_prompt())
     tech_stack = input("Tech Stack: ")
     
-    questions = generate_technical_questions(tech_stack)
+    questions = generate_technical_questions(tech_stack, position=position, experience=experience)
     print("Here are your technical questions:")
     for i, question in enumerate(questions, 1):
         print(f"{i}. {question}")
     
     print(get_closing_prompt())
     
-    sentiment, hesitation, feedback = analyze_response(" ".join(questions))
-    save_interaction(tech_stack, "\n".join(questions), sentiment, hesitation, feedback)
+    analysis = analyze_response(" ".join(questions), "Generated screening questions")
+    save_interaction(
+        tech_stack,
+        "\n".join(questions),
+        analysis.get("sentiment"),
+        analysis.get("hesitation"),
+        analysis.get("feedback"),
+    )
     
 if __name__ == "__main__":
     chat_with_candidate()
